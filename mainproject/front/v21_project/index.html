@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>CCTV 관제실</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<header class="topbar">
+			<div class="left">
+				<img id="logo" src="그림1.png" alt="logo" />
+				<div class="brand">
+					<h1>Yellow YOLO</h1>
+					<div class="subtitle">CCTV 관제 대시보드</div>
+				</div>
+			</div>
+			<div class="right">
+				<div id="userArea">
+					<a class="btn" href="login.html">로그인</a>
+				</div>
+			</div>
+		</header>
+
+		<main class="container">
+			<aside class="sidebar">
+				<nav>
+					<ul>
+						<li><a href="#" data-page="overview" class="active">Overview</a></li>
+						<li><a href="login.html" class="disabled">Live Feeds</a></li>
+						<li><a href="login.html" class="disabled">Playback</a></li>
+						<li><a href="login.html" class="disabled">Settings</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<section class="content" id="content">
+				<div class="page" id="overview">
+					<h2>🎥CCTV 관제실</h2>
+					<div class="cards">
+						<div class="card">카메라<br/><span class="big">12</span></div>
+						<div class="card">알람<br/><span class="big">3</span></div>
+						<div class="card">연결 상태<br/><span class="big">Good</span></div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

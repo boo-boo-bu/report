@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>로그인 - CCTV 관제실</title>
+		<link rel="stylesheet" href="styles.css?v=login1" />
+	</head>
+	<body>
+		<div class="login-page">
+			<div class="login-card">
+				<div class="login-header">
+					<img src="그림1.png" alt="logo" class="login-logo" />
+					<div class="login-title">Yellow YOLO</div>
+					<div class="login-subtitle">CCTV 관제 대시보드</div>
+				</div>
+				<h2>로그인</h2>
+				<div class="login-field">
+					<span class="login-label">사용자명</span>
+					<input id="username" type="text" />
+				</div>
+				<div class="login-field">
+					<span class="login-label">비밀번호</span>
+					<input id="password" type="password" />
+				</div>
+				<div class="modal-actions">
+					<button id="submitLogin" class="btn primary">로그인</button>
+					<a class="btn" href="monitoring.html">취소</a>
+				</div>
+				<div class="login-inline">회원이 아니신가요? <button id="showSignupInline" class="btn">회원가입</button></div>
+
+				<div id="signupInline" class="hidden login-signup">
+					<h4>회원가입</h4>
+					<div class="login-field">
+						<span class="login-label">사용자명</span>
+						<input id="su_username" type="text" />
+					</div>
+					<div class="login-field">
+						<span class="login-label">비밀번호</span>
+						<input id="su_password" type="password" />
+					</div>
+					<div class="login-field">
+						<span class="login-label">비밀번호 확인</span>
+						<input id="su_password_confirm" type="password" />
+					</div>
+					<div class="modal-actions">
+						<button id="submitSignup" class="btn primary">회원가입 제출</button>
+						<button id="cancelSignup" class="btn">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="login.js"></script>
+	</body>
+</html>

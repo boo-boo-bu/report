@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CCTV 관제실</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="left">
+        <img id="logo" src="그림1.png" alt="logo" />
+        <div class="brand">
+          <h1>Yellow YOLO</h1>
+          <div class="subtitle">CCTV 관제 대시보드</div>
+        </div>
+      </div>
+      <div class="right">
+        <div id="userArea">
+          <button id="loginBtn" class="btn">로그인</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="#" data-page="overview">Overview</a></li>
+            <li><a href="#" data-page="live" class="active">Live Feeds</a></li>
+            <li><a href="#" data-page="playback">Playback</a></li>
+            <li><a href="#" data-page="settings">Settings</a></li>
+          </ul>
+        </nav>
+        <section class="status">
+          <h4>✒️ 상태 및 기록</h4>
+          <div class="status-subtitle">신호등 전광판</div>
+          <div class="signal-board" id="signalBoard" data-state="RED">RED</div>
+          <div class="violation-wrap">
+            <div class="violation-title">위반 내역</div>
+            <div class="violation-list" id="violationList">
+              <div class="violation-item">[2026-02-09 14:10] 무단횡단 감지</div>
+              <div class="violation-item">[2026-02-09 13:58] 정지선 위반</div>
+              <div class="violation-item">[2026-02-09 13:40] 역주행 의심</div>
+              <div class="violation-item">[2026-02-09 13:20] 신호 위반</div>
+              <div class="violation-item">[2026-02-09 13:05] 보행자 위험</div>
+            </div>
+          </div>
+        </section>
+      </aside>
+
+      <section class="content" id="content">
+        <!-- Dynamic content inserted by script.js -->
+        <div class="page" id="live">
+          <h2>📺 실시간 화면</h2>
+          <div class="video-card">
+            <div class="video-frame" id="videoFrame">
+              <img id="video-feed" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="video feed" />
+              <div class="video-placeholder">영상 스트림 표시 영역</div>
+              <button id="uploadTrigger" class="upload-trigger" title="영상/카메라 업로드" aria-label="영상/카메라 업로드">🎥</button>
+            </div>
+            <div class="roi-info" id="roiInfo">
+              <div>좌표 로그</div>
+              <div id="roiLog" class="roi-log">(클릭 좌표가 여기에 표시됩니다)</div>
+            </div>
+            <div id="roiControls" class="roi-controls hidden">
+              <button id="roiStart" class="btn primary">ROI 설정 시작</button>
+              <button id="roiReset" class="btn">초기화</button>
+              <button id="roiDone" class="btn">설정 완료</button>
+            </div>
+            <div class="upload-section">
+              <div class="upload-row">
+                <input id="videoUploader" type="file" accept="image/*,video/*" class="upload-input" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page hidden" id="overview">
+          <h2>🎥CCTV 관제실</h2>
+          <div class="cards">
+            <div class="card">카메라<br/><span class="big">12</span></div>
+            <div class="card">알람<br/><span class="big">3</span></div>
+            <div class="card">연결 상태<br/><span class="big">Good</span></div>
+          </div>
+        </div>
+
+        <div class="page hidden" id="playback">
+          <h2>🚨 위반 차량 조회</h2>
+          <div class="playback-grid" id="playbackGrid">
+            <div class="playback-card">
+              <div class="playback-img">차량 이미지</div>
+              <div class="playback-info">
+                <div class="playback-title">정지선 위반</div>
+                <div class="playback-meta">차량번호: 12가 3456</div>
+                <div class="playback-meta">시간: 2026-02-09 13:58</div>
+                <div class="playback-meta">위치: A구역 3번</div>
+              </div>
+            </div>
+            <div class="playback-card">
+              <div class="playback-img">차량 이미지</div>
+              <div class="playback-info">
+                <div class="playback-title">신호 위반</div>
+                <div class="playback-meta">차량번호: 34나 7788</div>
+                <div class="playback-meta">시간: 2026-02-09 13:20</div>
+                <div class="playback-meta">위치: B구역 1번</div>
+              </div>
+            </div>
+            <div class="playback-card">
+              <div class="playback-img">차량 이미지</div>
+              <div class="playback-info">
+                <div class="playback-title">무단횡단 연관</div>
+                <div class="playback-meta">차량번호: 56다 9981</div>
+                <div class="playback-meta">시간: 2026-02-09 14:10</div>
+                <div class="playback-meta">위치: C구역 2번</div>
+              </div>
+            </div>
+            <div class="playback-card">
+              <div class="playback-img">차량 이미지</div>
+              <div class="playback-info">
+                <div class="playback-title">역주행 의심</div>
+                <div class="playback-meta">차량번호: 88라 1203</div>
+                <div class="playback-meta">시간: 2026-02-09 13:40</div>
+                <div class="playback-meta">위치: D구역 5번</div>
+              </div>
+            </div>
+            <div class="playback-card">
+              <div class="playback-img">차량 이미지</div>
+              <div class="playback-info">
+                <div class="playback-title">속도 위반</div>
+                <div class="playback-meta">차량번호: 99마 5544</div>
+                <div class="playback-meta">시간: 2026-02-09 12:45</div>
+                <div class="playback-meta">위치: E구역 4번</div>
+              </div>
+            </div>
+            <div class="playback-card">
+              <div class="playback-img">차량 이미지</div>
+              <div class="playback-info">
+                <div class="playback-title">불법 주정차</div>
+                <div class="playback-meta">차량번호: 21바 8877</div>
+                <div class="playback-meta">시간: 2026-02-09 11:30</div>
+                <div class="playback-meta">위치: F구역 6번</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page hidden" id="settings">
+          <h2>⚙️ 설정</h2>
+          <label>서버 주소<br/><input type="text" id="serverAddr" value="rtsp://example"/></label>
+          <label>해상도<br/>
+            <select id="resolution"><option>1080p</option><option>720p</option><option>480p</option></select>
+          </label>
+          <div id="roleControls" class="role-controls hidden">
+            <div class="role-title">유저 역할</div>
+            <div class="role-current">현재 역할: <span id="roleLabel">일반</span></div>
+            <div class="role-buttons">
+              <button id="roleUser" class="btn">일반 유저</button>
+              <button id="roleAdmin" class="btn primary">관리자</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
